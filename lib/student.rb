@@ -14,7 +14,9 @@ class Student
 
   def self.create_from_collection(students_array)
     student = self.new 
-    
+    student.students_array = student 
+    student.save 
+    student 
       
   end
 end 
