@@ -6,7 +6,7 @@ class Student
 
   def initialize(student_hash)
     student_hash.each do |key, value|
-      self.
+      self.send 
       
     end 
     @@all << self 
