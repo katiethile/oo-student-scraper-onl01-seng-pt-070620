@@ -9,6 +9,7 @@ class Student
      self.send("key=", value)
    end 
  end 
+ end 
       
     end 
     @@all << self 
