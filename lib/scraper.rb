@@ -38,7 +38,7 @@ class Scraper
               student[:blog] = link 
             end 
           end
+          student[:profile_quote]=
           student
-          
         end 
    end 
