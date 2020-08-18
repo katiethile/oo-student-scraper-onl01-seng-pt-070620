@@ -18,7 +18,7 @@ class Student
     student.save 
     student 
       
-  end
+
 end 
 
   def add_student_attributes(attributes_hash)
