@@ -3,7 +3,7 @@ require 'pry'
 
 class Scraper
 
-  @@student = []
+  @@students = []
   def self.scrape_index_page(index_url)
     doc = Nokogiri::HTML(open(index_url))
    times_to_loop = doc.css(".student-card").size
@@ -12,7 +12,7 @@ class Scraper
     i = 0 
     doc.css(".roster-cards-container").each do |student|
     times_to_loop.times do 
-      @@student.push({
+      @@students.push({
         location: doc.css(".student-location")[i].text, 
         name: doc.css(".student-name")[i].text,
         profile_url: doc.css(".student-card a")[i].attr("href")
@@ -20,7 +20,7 @@ class Scraper
       i += 1 
       end 
     end 
-    @@student
+    @@students
   end 
 
   def self.scrape_profile_page(profile_url)
@@ -29,13 +29,13 @@ class Scraper
     all_students = doc.css(".social-icon-container a").collect {|x| x.attribute('href').value}
     all_students.each do |link|
       if link.include?('linkedin')
-        students[:linkedin] = link 
+        student[:linkedin] = link 
         elsif link.include?('github')
-          students[:github] = link 
+          student[:github] = link 
           elsif link.include?('twitter')
-            students[:twitter] = link 
+            student[:twitter] = link 
             elsif link.include?('.com')
-              students[:blog] = link 
+              student[:blog] = link 
             end 
           end 
         end 
